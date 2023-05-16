@@ -208,6 +208,10 @@ def run_model(input_image):
 examples = [
     'examples/AR_4ftr44oANPU_34_900_35.jpg',
     'examples/AR_0Mi_dDnmF2Y_6_2610_15.jpg',
+    'examples/EK_0037_P28_101_frame_0000031096.jpg',
+    'examples/EK_0056_P04_121_frame_0000018401.jpg',
+    'examples/taskonomy_bonfield_point_42_view_6_domain_rgb.png',
+    'examples/taskonomy_wando_point_156_view_3_domain_rgb.png',
 ]
 
 title = 'Understanding 3D Object Interaction from a Single Image'
@@ -232,7 +236,7 @@ with gr.Blocks().queue() as demo:
             examples_handler = gr.Examples(
                 examples=examples,
                 inputs=input_image,
-                examples_per_page=5,
+                examples_per_page=10,
             )
 
     with gr.Row():
