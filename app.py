@@ -212,7 +212,7 @@ examples = [
 
 title = 'Understanding 3D Object Interaction from a Single Image'
 description = """
-<p style='text-align: center'> <a href='https://jasonqsy.github.io/3doi/' target='_blank'>Project Page</a> | <a href='#' target='_blank'>Paper</a> | <a href='https://github.com/JasonQSY/3DOI' target='_blank'>Code</a> | <a href='#' target='_blank'>Video</a></p>
+<p style='text-align: center'> <a href='https://jasonqsy.github.io/3DOI/' target='_blank'>Project Page</a> | <a href='#' target='_blank'>Paper</a> | <a href='https://github.com/JasonQSY/3DOI' target='_blank'>Code</a></p>
 Gradio demo for Understanding 3D Object Interaction from a Single Image. \n
 You may click on of the examples or upload your own image. \n
 After having the image, you can click on the image to create a single query point. You can then hit Run.\n
