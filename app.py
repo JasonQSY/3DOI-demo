@@ -96,7 +96,7 @@ def run_model(input_image):
 
     mask = np.array(input_image['mask'])[:, :, :3].sum(axis=2)
     if mask.sum() == 0:
-        raise gr.Error("No query point!")
+        raise gr.Error("No query point! Please click on the image to create a query point.")
     ret, thresh = cv2.threshold(mask.astype(np.uint8), 50, 255, cv2.THRESH_BINARY)
     contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
     M = cv2.moments(contours[0])
@@ -216,7 +216,7 @@ examples = [
 
 title = 'Understanding 3D Object Interaction from a Single Image'
 description = """
-<p style='text-align: center'> <a href='https://jasonqsy.github.io/3DOI/' target='_blank'>Project Page</a> | <a href='#' target='_blank'>Paper</a> | <a href='https://github.com/JasonQSY/3DOI' target='_blank'>Code</a></p>
+<p style='text-align: center'> <a href='https://jasonqsy.github.io/3DOI/' target='_blank'>Project Page</a> | <a href='https://arxiv.org/abs/2305.09664' target='_blank'>Paper</a> | <a href='https://github.com/JasonQSY/3DOI' target='_blank'>Code</a></p>
 Gradio demo for Understanding 3D Object Interaction from a Single Image. \n
 You may click on of the examples or upload your own image. \n
 After having the image, you can click on the image to create a single query point. You can then hit Run.\n
