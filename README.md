@@ -10,4 +10,4 @@ pinned: false
 license: mit
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+Demo code release for [Understanding 3D Object Interaction from a Single Image](https://arxiv.org/abs/2305.09664).
