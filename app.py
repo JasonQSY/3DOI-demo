@@ -222,7 +222,8 @@ description = """
 Gradio demo for Understanding 3D Object Interaction from a Single Image. \n
 You may click on of the examples or upload your own image. \n
 After having the image, you can click on the image to create a single query point. You can then hit Run.\n
-Our approach can predict 3D object interaction from a single image, including Movable (one hand or two hands), Rigid, Articulation type and axis, Action, Bounding box, Mask, Affordance and Depth.
+Our approach can predict 3D object interaction from a single image, including Movable (one hand or two hands), Rigid, Articulation type and axis, Action, Bounding box, Mask, Affordance and Depth.\n
+Since the demo is run on cpu, it needs approximately 30 seconds to inference, which is slow. You can either fork the huggingface space, or visit https://openxlab.org.cn/apps/detail/JasonQSY/3DOI for the same demo with Nvidia A10G.
 """
 
 def change_language(lang_select, description_controller, run_button):
