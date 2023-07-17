@@ -215,17 +215,40 @@ examples = [
 ]
 
 title = 'Understanding 3D Object Interaction from a Single Image'
-description = """
+authors = """
 <p style='text-align: center'> <a href='https://jasonqsy.github.io/3DOI/' target='_blank'>Project Page</a> | <a href='https://arxiv.org/abs/2305.09664' target='_blank'>Paper</a> | <a href='https://github.com/JasonQSY/3DOI' target='_blank'>Code</a></p>
+"""
+description = """
 Gradio demo for Understanding 3D Object Interaction from a Single Image. \n
 You may click on of the examples or upload your own image. \n
 After having the image, you can click on the image to create a single query point. You can then hit Run.\n
 Our approach can predict 3D object interaction from a single image, including Movable (one hand or two hands), Rigid, Articulation type and axis, Action, Bounding box, Mask, Affordance and Depth.
-"""  # noqa
+"""
+
+def change_language(lang_select, description_controller, run_button):
+    description_cn = """
+要运行demo，首先点击右边的示例图片或者上传自己的图片。在有了图片以后，点击图片上的点来创建query point，然后点击 Run。
+"""
+    if lang_select == "简体中文":
+        description_controller = description_cn
+        run_button = '运行'
+    else:
+        description_controller = description
+        run_button = 'Run'
+    
+    return description_controller, run_button
+    
 
 with gr.Blocks().queue() as demo:
     gr.Markdown("<h1 style='text-align: center; margin-bottom: 1rem'>" + title + "</h1>")
-    gr.Markdown(description)
+    gr.Markdown(authors)
+    # gr.Markdown("<p style='text-align: center'>ICCV 2023</p>")
+    
+
+    lang_select = gr.Dropdown(["简体中文", "English"], label='Language / 语言')
+    
+    description_controller = gr.Markdown(description)
+    
 
     with gr.Row():
         with gr.Column(scale=1):
@@ -259,8 +282,13 @@ with gr.Blocks().queue() as demo:
         with gr.Column(scale=1):
             pass
 
-    output_components = [query_image, pred_properties, pred_localization, pred_affordance, pred_depth]
+    lang_select.change(
+        change_language,
+        inputs=[lang_select, description_controller, run_button], 
+        outputs=[description_controller, run_button]
+    )
 
+    output_components = [query_image, pred_properties, pred_localization, pred_affordance, pred_depth]
     run_button.click(fn=run_model, inputs=[input_image], outputs=output_components)
 
 
